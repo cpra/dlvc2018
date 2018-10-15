@@ -44,3 +44,12 @@ class PetsDataset(ClassificationDataset):
         # TODO implement
 
         pass
+
+    def num_classes(self) -> int:
+        '''
+        Returns the number of classes.
+        '''
+
+        # TODO implement
+
+        pass
