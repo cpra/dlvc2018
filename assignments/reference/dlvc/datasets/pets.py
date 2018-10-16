@@ -1,5 +1,5 @@
 
-from ..dataset import Sample, Subset, CassificationDataset
+from ..dataset import Sample, Subset, ClassificationDataset
 
 class PetsDataset(ClassificationDataset):
     '''
