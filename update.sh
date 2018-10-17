@@ -8,6 +8,7 @@ mkdir -p lectures assignments
 
 cp "../lectures/lecture0/slides/slides.pdf" "lectures/lecture0.pdf"
 cp "../lectures/lecture1/slides/slides.pdf" "lectures/lecture1.pdf"
+cp "../lectures/lecture2/slides/slides.pdf" "lectures/lecture2.pdf"
 
 # copy assignment reference code
 
