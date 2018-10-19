@@ -34,3 +34,22 @@ Then implement the `PetsDataset` (`datasets/pets.py`). Make sure to follow the i
 * Make sure that the color channels are in BGR order (not RGB) by displaying the images and verifying the colors are correct (`cv2.imshow`, `cv2.imwrite`).
 
 Do not change any other files and do not create additional files.
+
+## Part 2
+
+Make sure you have the most recent [reference code](https://github.com/cpra/dlvc2018/tree/master/assignments/reference). If not, follow the procedure described in the first paragraph of Part 1.
+
+In this part we will implement common functionality for classifier training. As we'll see in the lecture, training and testing is almost always done in batches, with each being a small part of the whole data. The knn classifier we've covered so far is an exception but we'll already implement this functionality anyways as we'll need it later. To do so, finish the `BatchGenerator` class in `batches.py`. Make sure to read the comments and implement type and value checks accordingly.
+
+The `BatchGenerator`'s constructor has as optional `op` argument that is a function. If this argument is given, the generator will apply this function to the data of every sample before adding it to a batch. This is a flexible mechanism that will later allow us to implement data augmentation. For now we'll use it to transform the data to the form expected by the knn classifier (see `knn.py`). For this we need to convert the images to float vectors, as covered in the lecture. To do so, implement the `type_cast` and `vectorize` functions inside `ops.py`. These are functions that return other functions. See the `chain` function, which is already implemented for reference. That function allows for chaining other operations together like so:
+
+```python
+op = ops.chain([
+    ops.vectorize(),
+    ops.type_cast(np.float32)
+])
+```
+
+We can then use the batch generator with a batch size equal to the number of samples in the dataset (subset) to obtain data that is compatible with the classifier (and other classifiers that operate on feature vectors).
+
+Finally, implement the `KnnClassifier` in `knn.py`. Training is as simple as storing the training samples and labels. See the lecture slides for how to implement the prediction of softmax class scores ("probabilities").
