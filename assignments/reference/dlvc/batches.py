@@ -51,7 +51,7 @@ class BatchGenerator:
 
         pass
 
-    def __iter__(self) -> typing.Iterable[Batch]
+    def __iter__(self) -> typing.Iterable[Batch]:
         '''
         Iterate over the wrapped dataset, returning the data as batches.
         '''
