@@ -39,7 +39,7 @@ Do not change any other files and do not create additional files.
 
 Make sure you have the most recent [reference code](https://github.com/cpra/dlvc2018/tree/master/assignments/reference). If not, follow the procedure described in the first paragraph of Part 1.
 
-In this part we will implement common functionality for classifier training. As we'll see in the lecture, training and testing is almost always done in batches, with each being a small part of the whole data. The knn classifier we've covered so far is an exception but we'll already implement this functionality anyways as we'll need it later. To do so, finish the `BatchGenerator` class in `batches.py`. Make sure to read the comments and implement type and value checks accordingly.
+In this part we will implement common functionality for classifier training. As we'll see in the lecture, training and testing is almost always done in mini-batches, with each being a small part of the whole data. The knn classifier we've covered so far is an exception but we'll already implement this functionality anyways as we'll need it later. To do so, finish the `BatchGenerator` class in `batches.py`. Make sure to read the comments and implement type and value checks accordingly.
 
 The `BatchGenerator`'s constructor has as optional `op` argument that is a function. If this argument is given, the generator will apply this function to the data of every sample before adding it to a batch. This is a flexible mechanism that will later allow us to implement data augmentation. For now we'll use it to transform the data to the form expected by the knn classifier (see `knn.py`). For this we need to convert the images to float vectors, as covered in the lecture. To do so, implement the `type_cast` and `vectorize` functions inside `ops.py`. These are functions that return other functions. See the `chain` function, which is already implemented for reference. That function allows for chaining other operations together like so:
 
@@ -50,6 +50,13 @@ op = ops.chain([
 ])
 ```
 
-We can then use the batch generator with a batch size equal to the number of samples in the dataset (subset) to obtain data that is compatible with the classifier (and other classifiers that operate on feature vectors).
+We can then use the batch generator with a batch size equal to the number of samples in the dataset (subset) to obtain data that is compatible with the classifier (and other classifiers that operate on feature vectors). Make sure the following applies:
+
+* The number of training batches is `1` if the batch size is set to the number of samples in the dataset
+* The number of training batches is `16` if the batch size is set to 500
+* The data and label shapes are `(500, 3072)` and `(500,)`, respectively, unless for the last batch
+* The data type is always `np.float32` and the label type is integral (one of the `np.int` and `np.uint` variants)
+* The first sample of the first training batch returned *without shuffling* has label `0` and data `[116. 125. 125. 91. 101. ...]`.
+* The first sample of the first training batch returned *with shuffling* must always the different.
 
 Finally, implement the `KnnClassifier` in `knn.py`. Training is as simple as storing the training samples and labels. See the lecture slides for how to implement the prediction of softmax class scores ("probabilities").
