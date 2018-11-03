@@ -69,7 +69,7 @@ class Accuracy(PerformanceMeasure):
 
     def reset(self):
         '''
-        Resets internal state.
+        Resets the internal state.
         '''
 
         # TODO implement
@@ -110,7 +110,7 @@ class Accuracy(PerformanceMeasure):
 
     def __gt__(self, other) -> bool:
         '''
-        Return true if this accuracy is worse than another one.
+        Return true if this accuracy is better than another one.
         Raises TypeError if the types of both measures differ.
         '''
 
