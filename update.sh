@@ -10,6 +10,7 @@ cp "../lectures/lecture0/slides/slides.pdf" "lectures/lecture0.pdf"
 cp "../lectures/lecture1/slides/slides.pdf" "lectures/lecture1.pdf"
 cp "../lectures/lecture2/slides/slides.pdf" "lectures/lecture2.pdf"
 cp "../lectures/lecture3/slides/slides.pdf" "lectures/lecture3.pdf"
+cp "../lectures/lecture4/slides/slides.pdf" "lectures/lecture4.pdf"
 
 # copy assignment reference code
 
