@@ -29,7 +29,7 @@ Then implement the `PetsDataset` (`datasets/pets.py`). Make sure to follow the i
 
 * Number of samples in the individual datasets: 7959 (training), 2041 (validation), 2000 (test).
 * Total number of cat and dog samples: 6000 per class
-* Image shape: always `(32, 32, 3`, image type: always `np.uint8`
+* Image shape: always `(32, 32, 3)`, image type: always `np.uint8`
 * Labels of first 10 training samples: `0 0 0 0 1 0 0 0 0 1`
 * Make sure that the color channels are in BGR order (not RGB) by displaying the images and verifying the colors are correct (`cv2.imshow`, `cv2.imwrite`).
 
@@ -59,4 +59,58 @@ We can then use the batch generator with a batch size equal to the number of sam
 * The first sample of the first training batch returned *without shuffling* has label `0` and data `[116. 125. 125. 91. 101. ...]`.
 * The first sample of the first training batch returned *with shuffling* must always the different.
 
-Finally, implement the `KnnClassifier` in `knn.py`. Training is as simple as storing the training samples and labels. See the lecture slides for how to implement the prediction of softmax class scores ("probabilities").
+Finally, implement the `KnnClassifier` in `knn.py`. Training is as simple as storing the training samples and labels. See the lecture slides for how to implement the prediction of softmax class scores ("probabilities"). You can use the L1 or L2 distance (the L1 distance should work a bit better). You are *not* allowed to use third-party machine learning libraries in your implementation.
+
+## Part 3
+
+We will use the accuracy as the performance measure for the knn classifier (and other classifiers in the future). See the lecture slides for how this measure is defined and implement the `Accuracy` class in `test.py` accordingly. This class supports batch-wise updates which will be handy in the future (we already talked about minibatches in the lecture).
+
+Finally, combine the functionality implemented so far in a script `knn_cats_dogs.py` that does the following, in this order:
+
+1. Load the training, validation, and test sets as individual `PetsDataset`s.
+2. Create a `BatchGenerator` for each one with a minibatch size equal to the number of dataset samples.
+3. Implement random or grid search (your choice) for finding a good value for `k`, assuming `0 k <= 100`. Test at least 5 values. This is not a lot but testing a single `k` will probably take a long time.
+4. For each `k` to test, "train" a `KnnClassifier` and then calculate the accuracy on the validation set.
+5. Report the best `k` found and the corresponding validation accuracy.
+6. Compute and report the accuracy on the test set with that `k`
+
+Steps 3 to 6 must be implemented in a generic way using a loop, like so:
+
+```python
+for k in range(1, 101, 10):  # grid search example
+    knn = KnnClassifier(k, ...)
+    accuracy = Accuracy()
+    # train and compute validation accuracy ...
+    if accuracy > best_accuracy:
+        best_accuracy = accuracy
+        best_k = k
+
+knn = KnnClassifier(best_k, ...)
+# compute test accuracy
+```
+
+## Report
+
+Write a short report (1 to 2 pages) that answers the following questions:
+
+* What is image classification?
+* What is the purpose of the training, validation, and test sets and why do we need all of them?
+* How do knn classifiers work?
+
+Also include your results obtained from `knn_cats_dogs.py`. Include the validation accuracies for the different `k` you considered as a table or (better) a plot. Also include the final test accuracy, compare the best validation accuracy and the final test accuracy, and discuss the results.
+
+## Submission
+
+Submit your assignment until **11.11 at 11pm**. To do so, create a zip archive including the report, the complete `dlvc` folder with your implementations as well as `knn_cats_dogs.py`. More precisely, after extracting the archive I should obtain the following:
+
+    group_x/
+        report.pdf
+        knn_cats_dogs.py
+        dlvc/
+            batches.py
+            ...
+            datasets/
+                ...
+            ...
+
+Then upload that archive to the submission archive on the DLVC server. Details will be added in the next couple days but please **make sure already that you are able to login and upload files**.
