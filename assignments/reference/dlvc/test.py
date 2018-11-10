@@ -14,7 +14,7 @@ class PerformanceMeasure(metaclass=ABCMeta):
     @abstractmethod
     def reset(self):
         '''
-        Resets the internal state.
+        Resets internal state.
         '''
 
         pass
