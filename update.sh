@@ -21,3 +21,9 @@ cp -R "../assignments/src/reference" "assignments/"
 # copy assignment 1 related things
 
 cp -R "../assignments/assignment1" "assignments/"
+
+# copy assignment 2 related things
+
+cp -R "../assignments/assignment2" "assignments/"
+rm "assignments/assignment2/gradient_descent_2d_impl.py"
+rm "assignments/assignment2/fn/generate.py"
