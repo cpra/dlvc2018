@@ -1,2 +1,5 @@
 *.pyc
 __pycache__
+/assignments/assignment1/submissions
+/assignments/assignment2/submissions
+/assignments/assignment3/submissions
