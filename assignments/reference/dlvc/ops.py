@@ -36,3 +36,39 @@ def vectorize() -> Op:
     # TODO implement (see above for guidance).
 
     pass
+
+def hwc2chw() -> Op:
+    '''
+    Flip a 3D array with shape HWC to shape CHW.
+    '''
+
+    # TODO implement (see np.transpose)
+
+    pass
+
+def chw2hwc() -> Op:
+    '''
+    Flip a 3D array with shape CHW to HWC.
+    '''
+
+    # TODO implement (see np.transpose)
+
+    pass
+
+def add(val: float) -> Op:
+    '''
+    Add a scalar value to all array elements.
+    '''
+
+    # TODO implement
+
+    pass
+
+def mul(val: float) -> Op:
+    '''
+    Multiply all array elements by the given scalar.
+    '''
+
+    # TODO implement
+
+    pass
