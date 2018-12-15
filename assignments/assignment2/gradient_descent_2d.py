@@ -73,7 +73,7 @@ if __name__ == '__main__':
     parser.add_argument('sx1', type=float, help='Initial value of the first argument')
     parser.add_argument('sx2', type=float, help='Initial value of the second argument')
     parser.add_argument('--eps', type=float, default=1.0, help='Epsilon for computing numeric gradients')
-    parser.add_argument('--step_size', type=float, default=10.0, help='Step size')
+    parser.add_argument('--learning_rate', type=float, default=10.0, help='SGD learning rate')
     parser.add_argument('--beta', type=float, default=0, help='Beta parameter of momentum (0 = no momentum)')
     parser.add_argument('--nesterov', action='store_true', help='Use Nesterov momentum')
     args = parser.parse_args()
