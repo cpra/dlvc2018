@@ -19,6 +19,7 @@ cp "../lectures/lecture8/slides/slides.pdf" "lectures/lecture8.pdf"
 # copy assignment reference code
 
 cp "../assignments/general.md" "assignments/"
+cp "../assignments/server.md" "assignments/"
 cp -R "../assignments/src/reference" "assignments/"
 
 # copy assignment 1 related things

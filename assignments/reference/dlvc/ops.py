@@ -72,3 +72,25 @@ def mul(val: float) -> Op:
     # TODO implement
 
     pass
+
+def hflip() -> Op:
+    '''
+    Flip arrays with shape HWC horizontally with a probability of 0.5.
+    '''
+
+    # TODO implement (numpy.flip will be helpful)
+
+    pass
+
+def rcrop(sz: int, pad: int, pad_mode: str) -> Op:
+    '''
+    Extract a square random crop of size sz from arrays with shape HWC.
+    If pad is > 0, the array is first padded by pad pixels along the top, left, bottom, and right.
+    How padding is done is governed by pad_mode, which should work exactly as the 'mode' argument of numpy.pad.
+    Raises ValueError if sz exceeds the array width/height after padding.
+    '''
+
+    # TODO implement
+    # https://docs.scipy.org/doc/numpy-1.15.1/reference/generated/numpy.pad.html will be helpful
+
+    pass
