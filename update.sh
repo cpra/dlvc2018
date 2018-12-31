@@ -17,6 +17,8 @@ cp "../lectures/lecture7/slides/slides.pdf" "lectures/lecture7.pdf"
 cp "../lectures/lecture8/slides/slides.pdf" "lectures/lecture8.pdf"
 cp "../lectures/lecture9/slides/slides.pdf" "lectures/lecture9.pdf"
 
+cp "../exam-questions/questions.pdf" "exam-questions.pdf"
+
 # copy assignment reference code
 
 cp "../assignments/general.md" "assignments/"
