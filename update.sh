@@ -34,3 +34,9 @@ cp -R "../assignments/assignment1" "assignments/"
 cp -R "../assignments/assignment2" "assignments/"
 rm "assignments/assignment2/gradient_descent_2d_impl.py"
 rm "assignments/assignment2/fn/generate.py"
+rm -rf "assignments/assignment1/autotest"
+rm "assignments/assignment1/points.md"
+
+# copy assignment 3 related things
+
+cp -R "../assignments/assignment3" "assignments/"
