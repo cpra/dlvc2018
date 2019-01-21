@@ -23,7 +23,7 @@ class BatchGenerator:
     Batch generator.
     Returned batches have the following properties:
       data: numpy array holding batch data of shape (s, SHAPE_OF_DATASET_SAMPLES).
-      labels: numpy array holding batch labels of shape (s, SHAPE_OF_DATASET_LABELS).
+      label: numpy array holding batch labels of shape (s, SHAPE_OF_DATASET_LABELS).
       idx: numpy array with shape (s,) encoding the indices of each sample in the original dataset.
     '''
 
